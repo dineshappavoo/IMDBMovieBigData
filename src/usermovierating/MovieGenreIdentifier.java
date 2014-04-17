@@ -15,7 +15,10 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
+ * 
+ * Q2. Given some movie titles - find all the genres of the movies. 
+ * (Taking the movie titles as command line input is a must here) [use only movies.dat as input file]
  *
  */
 public class MovieGenreIdentifier {
