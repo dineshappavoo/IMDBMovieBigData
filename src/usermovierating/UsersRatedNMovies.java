@@ -18,7 +18,9 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 
 /**
- * @author Dany
+ * @author Dinesh Appavoo
+ * 
+ * Q1. Find all the user ids who has rated at least n movies. (n=30 or 40) [use only ratings.dat as input file]
  *
  */
 public class UsersRatedNMovies {
