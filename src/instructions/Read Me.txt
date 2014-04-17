@@ -30,10 +30,10 @@ hadoop jar MovieGenreIdentifier.jar MovieGenreIdentifier /Spring2014_HW-1/input_
 QUESTION 3:
 
 Compiling details:
-javac -classpath /usr/local/hadoop-1.0.4/hadoop-core-1.0.4.jar -d Q3_classes Q3new.java
+javac -classpath /usr/local/hadoop-1.2.1/hadoop-core-1.2.1.jar -d imdbclasses Q3new.java
 
 Jar File Creation Details:
-jar -cvf Q3new.jar -C Q3_classes/ .
+jar -cvf Q3new.jar -C imdbclasses/ .
 
 
 RunTime:
