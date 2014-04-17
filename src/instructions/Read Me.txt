@@ -3,10 +3,10 @@ Student Name : Poornesh Natarajan.
 QUESTION 1: 
 
 Compiling details:
-javac -classpath /usr/local/hadoop-1.2.1/hadoop-core-1.2.1.jar -d imdbratingclasses UsersRatedNMovies.java
+javac -classpath /usr/local/hadoop-1.2.1/hadoop-core-1.2.1.jar -d imdbclasses UsersRatedNMovies.java
 
 Jar File Creation Details:
-jar -cvf UsersRatedNMovies.jar -C imdbratingclasses/ .
+jar -cvf UsersRatedNMovies.jar -C imdbclasses/ .
 
 
 RunTime:
@@ -17,14 +17,14 @@ hadoop  jar  ./UsersRatedNMovies.jar  UsersRatedNMovies  /Spring2014_HW-1/input_
 QUESTION2:
 
 Compiling details:
-javac -classpath /usr/local/hadoop-1.0.4/hadoop-core-1.0.4.jar -d Q2_classes Q2new.java
+javac -classpath /usr/local/hadoop-1.2.1/hadoop-core-1.2.1.jar -d imdbclasses MovieGenreIdentifier.java
 
 Jar File Creation Details:
-jar -cvf Q2new.jar -C Q2_classes/ .
+jar -cvf MovieGenreIdentifier.jar -C imdbclasses/ .
 
 
 RunTime:
-hadoop jar Q2new.jar Q2new /Spring2014_HW-1/input_HW-1/movies.dat /user/pxn121530/outputQ2 Congo
+hadoop jar MovieGenreIdentifier.jar MovieGenreIdentifier /Spring2014_HW-1/input_HW-1/movies.dat /user/pxn121530/outputQ2 Congo,Father of the Bride Part II (1995),Casino (1995)
 
 
 QUESTION 3:
