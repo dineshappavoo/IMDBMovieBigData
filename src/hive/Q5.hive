@@ -1,0 +1,26 @@
+DROP TABLE MOVIES;
+DROP TABLE RATINGS;
+
+CREATE TABLE MOVIES(movieid STRING,moviename STRING,genre STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\;';
+
+
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/movies_new'
+INTO TABLE MOVIES;
+
+
+CREATE TABLE RATINGS(userid STRING,movieid STRING,rating FLOAT,times STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\;';
+
+
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/ratings_new'
+INTO TABLE RATINGS;
+
+--SELECT * FROM RATINGS where rating=5;
+SELECT MOVIES.movieid,MOVIES.moviename,AVG(rating) as avg_rating
+FROM MOVIES JOIN RATINGS ON (MOVIES.movieid=RATINGS.movieid)
+--where MOVIES.movieid=RATINGS.movieid
+  where  MOVIES.genre like '%Action%'
+  group by MOVIES.movieid,MOVIES.moviename
+  ORDER BY avg_rating DESC
+  LIMIT 10;
