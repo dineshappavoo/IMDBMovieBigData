@@ -1,0 +1,13 @@
+add jar /home/004/p/px/pxn121530/BigData/HW3/bq.jar;
+CREATE TEMPORARY FUNCTION genre_format as 'Genre_Formatting';
+DROP TABLE MOVIES;
+
+CREATE TABLE MOVIES(movieid STRING,moviename STRING,genre STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\;';
+
+
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/movies_new'
+INTO TABLE MOVIES;
+
+SELECT movieid,moviename,genre_format(genre) from MOVIES;
+

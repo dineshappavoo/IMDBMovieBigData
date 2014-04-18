@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS table_2009(MovieId STRING, MovieTitle String, MovieGenre STRING);
+CREATE TABLE IF NOT EXISTS table_2010(MovieId STRING, MovieTitle String, MovieGenre STRING);
+CREATE TABLE IF NOT EXISTS table_2011(MovieId STRING, MovieTitle String, MovieGenre STRING);
+
+FROM Movies_Part m
+INSERT OVERWRITE TABLE table_2009 SELECT m.MovieId, m.MovieTitle, m.MovieGenre WHERE m.date_year = '2009'
+INSERT OVERWRITE TABLE table_2010 SELECT m.MovieId, m.MovieTitle, m.MovieGenre WHERE m.date_year = '2010'
+INSERT OVERWRITE TABLE table_2011 SELECT m.MovieId, m.MovieTitle, m.MovieGenre WHERE m.date_year = '2011';
+
+SELECT * FROM table_2009;

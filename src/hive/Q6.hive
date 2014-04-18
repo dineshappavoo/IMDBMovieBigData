@@ -1,0 +1,24 @@
+
+CREATE TABLE IF NOT EXISTS  users(userId STRING,Gender STRING,Age STRING,Occupation STRING,Zipcode STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\;';
+CREATE TABLE IF NOT EXISTS rating(userId STRING,MovieId STRING,Rating DOUBLE,time STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\;';
+CREATE TABLE IF NOT EXISTS  movies(movieid STRING,title STRING,genre STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\;';
+
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/users_new' INTO TABLE users;
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/ratings_new' INTO TABLE rating;
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/movies_new' INTO TABLE movies;
+
+select movies.movieId,  movies.title, movies.genre, AVG(rating.Rating)as avg
+From movies JOIN rating ON (rating.MovieId=movies.movieid) JOIN users ON (users.userId = rating.userId) 
+where users.Gender = 'M' AND (movies.genre = 'Drama' or movies.genre = 'Action')
+GROUP BY movies.movieid,movies.title,movies.genre
+having  avg >= 4.4 AND  avg <= 4.7;
+
+
+
+
+
+
+
+
+
+

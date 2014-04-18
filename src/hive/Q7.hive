@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS Movies_Part(MovieId STRING, MovieTitle String, MovieGenre STRING)
+PARTITIONED BY (date_year string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\;';
+
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/partition/2010' INTO TABLE Movies_Part PARTITION (date_year ='2010');
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/partition/2011' INTO TABLE Movies_Part PARTITION (date_year ='2011');
+LOAD DATA local INPATH '/tmp/Spring2014_HW-3_Hive/partition/2009' INTO TABLE Movies_Part PARTITION (date_year ='2009');
+
+SELECT * FROM Movies_Part WHERE date_year = '2009';
